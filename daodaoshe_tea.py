@@ -84,7 +84,7 @@ def send_transaction(recipient):
 
         
         signed_tx = web3.eth.account.sign_transaction(tx_data, private_key)
-        tx_hash = web3.eth.send_raw_transaction(signed_tx.rawTransaction)
+        tx_hash = web3.eth.send_raw_transaction(signed_tx.raw_transaction)
         
         print(f"[{web3.eth.block_number}] 发送 {amount / 1e18:.4f} ETH 到 {recipient}，交易哈希: {tx_hash.hex()}")
     except Exception as e:
